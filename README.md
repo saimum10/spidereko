@@ -20,8 +20,6 @@ git clone https://github.com/saimum10/spidereko
 python3 spidereko/spidereko.py -install
 ```
 
-This copies the program to `~/.local/bin/spidereko` and adds an icon and an app-menu entry. Clicking the app icon opens the settings window; right-click it for Settings / Start / Stop. If the icon is still blank in the app menu, log out and in once. If `spidereko` is not found in a terminal, add `~/.local/bin` to your `PATH`.
-
 Run it:
 
 ```sh
@@ -29,7 +27,6 @@ spidereko               # start the spider with your saved settings
 spidereko -settings     # open the settings window (starts the spider if needed)
 ```
 
-Only one spider runs at a time. Running `spidereko` again while it is already running does not start a second one; use `-settings` or one of the options below to change the running spider.
 
 ## Uninstall
 
@@ -37,27 +34,9 @@ Only one spider runs at a time. Running `spidereko` again while it is already ru
 spidereko -uninstall
 ```
 
-Stops the spider and removes the installed files. Your saved settings stay in `~/.config/spidereko/`; delete that folder as well if you want them gone.
-
 ## Settings
 
 You can change settings in the settings window or on the command line. Both do the same thing: the change is applied **immediately** to the running spider (no second spider is started) and **saved**, so the next start uses it too.
-
-### Settings window
-
-Open it by clicking the app icon, by choosing **Settings…** in the tray menu, by clicking the tray icon, or with `spidereko -settings`.
-
-| Control | What it does |
-|---|---|
-| **Spider on** | Shows or hides the spider. The program keeps running, so the tray icon stays and you can switch it back on |
-| **Speed** | Top speed, 50 to 2000 pixels per second |
-| **Size** | Spider scale, 0.3× to 8× |
-| **Height above cursor** | Where the spider sits relative to the pointer. In the middle (default) it sits just above the pointer without touching it. Move the slider right to make it sit higher, left to bring it down; at the far left it sits just below the pointer |
-| **Falls asleep after** | Seconds the spider sits by the pointer before it falls asleep, 0 to 60 |
-| **Smoothness** | Animation frame rate, 10 to 120 fps |
-| **Colors** | Body, outline / eyes and abdomen mark; each button opens a color picker |
-| **Chase the focused window** | Follow the focused window's top edge instead of the pointer (greyed out unless `xdotool` is installed) |
-| **Reset to defaults** | Puts every setting back to its default |
 
 ### Command-line options
 
@@ -87,17 +66,6 @@ Example:
 ```sh
 spidereko -size 1.5 -speed 600 -idle 5 -accent '#00d1b2'
 ```
-
-If a spider is already running, it picks these up right away. Invalid values (for example `-lift 150` or an unknown color) are rejected with an error and nothing is changed.
-
-### Where settings are saved
-
-In `~/.config/spidereko/config.json` (or `$XDG_CONFIG_HOME/spidereko/config.json`). If the file is missing or damaged, the defaults are used. `spidereko -reset` restores the defaults.
-
-## Tray icon
-
-The tray icon menu has **Settings…**, **Hide spider** (**Show spider** while it is hidden) and **Quit**. Clicking the icon opens the settings window too, on desktops that report icon clicks; otherwise use the menu entry. The icon is light with a dark outline, so it stays visible on both dark and light panels. On GNOME, tray icons need the AppIndicator extension.
-
 ## License
 
 [MIT](LICENSE)
