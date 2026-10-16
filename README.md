@@ -90,13 +90,6 @@ python3 spidereko.py -install
 (`pip install PyQt6` works too if your distribution has no `python3-pyqt6`.)
 You can also just try it without installing: `python3 spidereko.py`.
 
-### What `-install` does
-
-It copies the program to `~/.local/bin/spidereko`, adds the logo and an **app-menu entry "Spidereko"**
-(clicking it opens the settings window and starts the spider if it is not running). Everything goes
-into your home directory - no `sudo`, nothing outside `~`. If the terminal says `spidereko: command not
-found` afterwards, add `~/.local/bin` to your `PATH` (or log out and in once).
-
 ---
 
 ## Use
@@ -179,31 +172,6 @@ settings are kept.
 * **"spidereko is already running".** That is intended - only one spider runs. `spidereko -stop` stops it.
 * **Build error in `c/`.** One of the four `-dev` packages is missing; install them as shown above.
 
-## How it works
-
-The spider is a small simulation: a body with heading and velocity, eight legs in two alternating groups
-(one group steps while the other holds the ground), two-bone inverse kinematics for each leg so the knees
-bend naturally, and a "curl" that tucks the legs in when it sleeps. It follows the pointer position taken
-from the X server and is drawn into a transparent, input-transparent window above everything else. To stay
-light it redraws at full speed only while something really moves, about 15 times a second when standing
-still, and about 7 times a second when asleep.
-
-## Project layout
-
-```
-spidereko/
-├── c/                  the C version (Makefile + sources)
-│   ├── sim.c           the spider: body, legs, gait, sleep (no X in here)
-│   ├── paint.c         Cairo drawing of the spider and the logo
-│   ├── gui.c           overlay window, tray icon, timers, event loop
-│   ├── ui.c            settings window, colour picker, tray menu
-│   ├── config.c        settings and the JSON config file
-│   ├── proc.c          one-instance lock, stop, install / uninstall
-│   └── main.c          command line
-├── python/
-│   └── spidereko.py    the Python version (a single file)
-└── assets/             logo and preview picture
-```
 
 ## License
 
