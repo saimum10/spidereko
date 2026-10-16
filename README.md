@@ -65,6 +65,7 @@ sudo apt install build-essential pkg-config libx11-dev libxext-dev libxrandr-dev
 cd c
 make
 ./spidereko -install        # or:  make install
+rm -rf spidereko
 ```
 
 Other distributions - the same four libraries under their usual names:
@@ -85,6 +86,7 @@ sudo apt install xdotool            # optional: only for the -tofocus option
 
 cd python
 python3 spidereko.py -install
+rm -rf spidereko
 ```
 
 (`pip install PyQt6` works too if your distribution has no `python3-pyqt6`.)
