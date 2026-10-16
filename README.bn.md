@@ -64,6 +64,7 @@ sudo apt install build-essential pkg-config libx11-dev libxext-dev libxrandr-dev
 cd c
 make
 ./spidereko -install        # অথবা:  make install
+rm -rf spidereko
 ```
 
 অন্য ডিস্ট্রিবিউশনে একই চারটা লাইব্রেরি, তাদের চলতি নামে:
@@ -84,6 +85,7 @@ sudo apt install xdotool            # ঐচ্ছিক: শুধু -tofocus 
 
 cd python
 python3 spidereko.py -install
+rm -rf spidereko
 ```
 
 (তোমার ডিস্ট্রিবিউশনে `python3-pyqt6` না থাকলে `pip install PyQt6`-ও চলবে।)
