@@ -64,6 +64,7 @@ sudo apt install build-essential pkg-config libx11-dev libxext-dev libxrandr-dev
 cd c
 make
 ./spidereko -install        # অথবা:  make install
+cd ../..
 rm -rf spidereko
 ```
 
@@ -85,6 +86,7 @@ sudo apt install xdotool            # ঐচ্ছিক: শুধু -tofocus 
 
 cd python
 python3 spidereko.py -install
+cd ../..
 rm -rf spidereko
 ```
 
