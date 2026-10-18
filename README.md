@@ -179,4 +179,5 @@ settings are kept.
 
 ## License
 
-[MIT](LICENSE)
+[MIT]
+([LICENSE](https://github.com/saimum10/spidereko?tab=MIT-1-ov-file))
